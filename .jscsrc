@@ -1,0 +1,74 @@
+{
+  "excludeFiles": [                                 // do not check files from listed folders
+    "node_modules/**",
+    "bower_components/**",
+    "app/jsdoc.conf.js"
+  ],
+  "requireCurlyBraces": [                           // require {} after listed words
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "try",
+    "catch"
+  ],
+  "requireSpaceAfterKeywords": [                    // require spaces after listed words
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "switch",
+    "return",
+    "try",
+    "catch"
+  ],
+  "requireSpaceBeforeBinaryOperators": [            // require spaces before listed operators
+    "=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=",
+    "&=", "|=", "^=", "+=",
+
+    "+", "-", "*", "/", "%", "<<", ">>", ">>>", "&",
+    "|", "^", "&&", "||", "===", "==", ">=",
+    "<=", "<", ">", "!=", "!=="
+  ],
+  "requireOperatorBeforeLineBreak"          : true, // before line break should be operator
+  "requireCamelCaseOrUpperCaseIdentifiers": {       // identifiers should be in camelCaseStyle
+    "ignoreProperties": true,
+    "strict": false
+  },
+  "maximumLineLength": {
+    "value"                                 : 120,  // maximum charactesr per line
+    "allowComments"                         : true, // allow comments
+    "allowRegex"                            : true  // allow regular expression
+  },
+  "validateIndentation"                     : 2,    // number of spaces for text indent
+  "validateQuoteMarks"                      : "'",  // valid quotemarks
+
+  "disallowMultipleLineStrings"             : true, // allow only valid line break for strings
+  "disallowMixedSpacesAndTabs"              : true, // allow only tabs or spaces for text indent
+  "disallowTrailingWhitespace"              : false, // Requires all lines to end on a non-whitespace character
+  "disallowSpaceAfterPrefixUnaryOperators"  : true, // Requires sticking unary operators to the right
+  "disallowMultipleVarDecl"                 : null, // Disallows multiple var declaration (except for-loop)
+
+
+  "requireSpaceAfterBinaryOperators"        : true, // Disallows sticking binary operators to the right.
+  "requireSpacesInConditionalExpression"    : true, // Requires space before and/or after ? or : in conditional expressions.
+  "requireSpaceBeforeBlockStatements"       : true, // Requires space(s) before block statements (for loops, control structures).
+  "requireLineFeedAtFileEnd"                : true, // Requires placing line feed at file end
+  "disallowSpacesInsideObjectBrackets"      : "all",// Disallows space after opening object curly brace and before closing.
+  "disallowSpacesInsideArrayBrackets"       : "all",// Disallows space after opening array square bracket and before closing
+  "disallowSpacesInsideParentheses"         : true, // Disallows space after opening round bracket and before closing.
+
+  "disallowMultipleLineBreaks"              : true, // Disallows multiple blank lines in a row
+
+  "disallowCommaBeforeLineBreak"            : null, // Disallows commas as last token on a line in lists
+  "disallowDanglingUnderscores"             : null, // Disallows identifiers that start or end in _
+  "disallowEmptyBlocks"                     : true, // Disallows empty blocks (except for catch blocks)
+  "disallowTrailingComma"                   : true, // Disallows an extra comma following the final element of an array or object literal
+  "requireCommaBeforeLineBreak"             : true, // Requires commas as last token on a line in lists
+  "requireDotNotation"                      : null, // Requires member expressions to use dot notation when possible
+  "requireMultipleVarDecl"                  : false, // Requires multiple var declaration
+  "requireParenthesesAroundIIFE"            : true, // Requires parentheses around immediately invoked function expressions.
+  "maxErrors"                               : -1    // Max errors showed per file
+}

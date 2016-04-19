@@ -1,0 +1,31 @@
+{
+  "author": {
+    "name": "Agilium Soft, David Martyrosian",
+    "email": "info@agiliumlabs.com"
+  },
+  "description": "express-microservice-profiler",
+  "homepage": "https://agiliumlabs.com/bitbucket/projects/CMP/repos/express-microservice-profiler/browse",
+  "licenses": [
+    {
+      "licenses": [
+        {
+          "license": "(c) Copyright 2016 AgiliumSoft, LLC, all rights reserved"
+        }
+      ]
+    }
+  ],
+  "name": "express-microservice",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-microservice-build": "git+https://agiliumlabs.com/bitbucket/scm/cmp/express-microservice-build.git",
+    "supertest": "^1.2.0"
+  },
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "https://agiliumlabs.com/bitbucket/scm/cmp/express-microservice-profiler.git"
+  },
+  "scripts": {},
+  "version": "1.0.0",
+  "readme": "ERROR: No README data found!"
+}
