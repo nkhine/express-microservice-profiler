@@ -17,7 +17,6 @@ function middlewareToTest (req, res, next) {
 }
 
 app.use(middlewareToTest);
-app.use(middlewareToTest);
 app.use(profiler.recordStats(function(reqStats) {
   stats = reqStats;
 }));
