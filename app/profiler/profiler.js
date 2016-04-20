@@ -33,7 +33,7 @@
               req.profilingStats.push({
                 name: middlewareName,
                 timeStarted: startDate,
-                duration: duration
+                duration: duration[1] / 1000000000
               });
               return next(err);
             });
