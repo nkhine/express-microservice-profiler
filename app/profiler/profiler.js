@@ -21,7 +21,7 @@
     app.use = function() {
       for (var i in arguments) {
         if (arguments.hasOwnProperty(i) && typeof arguments[i] === 'function') {
-          updateArguments(arguments, i, expressUse)
+          updateArguments(arguments, i, expressUse);
         }
       }
       return expressUse.apply(app, arguments);
