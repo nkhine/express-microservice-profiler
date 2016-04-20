@@ -66,8 +66,8 @@
    * @returns {Function} express middleware
    */
   function label(name, middleware) {
-    return (new Function("return function (call) { return function " + name +
-      " () { return call(this, arguments) }; };")())(Function.apply.bind(middleware));
+    return (new Function('return function (call) { return function ' + name + // jshint ignore:line
+      ' () { return call(this, arguments) }; };')())(Function.apply.bind(middleware));
   }
 
 })();
