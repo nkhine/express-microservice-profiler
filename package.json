@@ -18,6 +18,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "express-microservice-build": "git+https://agiliumlabs.com/bitbucket/scm/cmp/express-microservice-build.git",
+    "jshint": "^2.9.2",
     "supertest": "^1.2.0"
   },
   "main": "index",
