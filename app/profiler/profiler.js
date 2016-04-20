@@ -21,29 +21,32 @@
     app.use = function() {
       for (var i in arguments) {
         if (arguments.hasOwnProperty(i) && typeof arguments[i] === 'function') {
-          var oldMIddleware = arguments[i];
-          arguments[i] = function(req, res, next) {
-            var startTime = process.hrtime();
-            var startDate = new Date();
-            return oldMIddleware(req, res, function(err) {
-              var duration = process.hrtime(startTime);
-              var middlewareName = oldMIddleware.name;
-              req.profilingStats = req.profilingStats || [];
-
-              req.profilingStats.push({
-                name: middlewareName,
-                timeStarted: startDate,
-                duration: duration[1] / 1000000000
-              });
-              return next(err);
-            });
-          };
+          updateArguments(arguments, i, expressUse)
         }
       }
-
       return expressUse.apply(app, arguments);
     };
     return app;
+  }
+
+  function updateArguments(args, i, expressUse) {
+    var oldMIddleware = args[i];
+    args[i] = function(req, res, next) {
+      var startTime = process.hrtime();
+      var startDate = new Date();
+      return oldMIddleware(req, res, function(err) {
+        var duration = process.hrtime(startTime);
+        var middlewareName = oldMIddleware.name;
+        req.profilingStats = req.profilingStats || [];
+
+        req.profilingStats.push({
+          name: middlewareName,
+          timeStarted: startDate,
+          duration: duration[1] / 1000000000
+        });
+        return next(err);
+      });
+    };
   }
 
   /**

@@ -16,7 +16,13 @@ function middlewareToTest (req, res, next) {
   }, 1000);
 }
 
-app.use(middlewareToTest);
+function middlewareToTest2 (req, res, next) {
+  setTimeout(function() {
+    next();
+  }, 1000);
+}
+
+app.use(middlewareToTest, middlewareToTest2);
 app.use(profiler.recordStats(function(reqStats) {
   stats = reqStats;
 }));
@@ -32,7 +38,7 @@ describe('Profiler moduler', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        stats.length.should.eql(2);
+        stats.length.should.eql(3);
         stats[0].name.should.eql('middlewareToTest');
         done();
       });
