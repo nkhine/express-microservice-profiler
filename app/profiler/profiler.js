@@ -8,6 +8,7 @@
 
   exports.startProfiling = startProfiling;
   exports.recordStats = recordStats;
+  exports.label = label;
 
   /**
      * Overrides the app.use function to handle prifiling
@@ -56,6 +57,17 @@
       cb(req.profilingStats);
       next();
     };
+  }
+
+  /**
+   * Wraps a middleware function into a named function
+   * @member label
+   * @param name {String} Name to add to the middleware 
+   * @returns {Function} express middleware
+   */
+  function label(name, middleware) {
+    return (new Function("return function (call) { return function " + name +
+      " () { return call(this, arguments) }; };")())(Function.apply.bind(middleware));
   }
 
 })();
