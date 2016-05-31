@@ -31,22 +31,41 @@
 
   function updateArguments(args, i, expressUse) {
     var oldMIddleware = args[i];
-    args[i] = function(req, res, next) {
-      var startTime = process.hrtime();
-      var startDate = new Date();
-      return oldMIddleware(req, res, function(err) {
-        var duration = process.hrtime(startTime);
-        var middlewareName = oldMIddleware.name;
-        req.profilingStats = req.profilingStats || [];
+    if (args[i].length >= 4) {
+      args[i] = function(err, req, res, next) {
+        var startTime = process.hrtime();
+        var startDate = new Date();
+        return oldMIddleware(err, req, res, function(err) {
+          var duration = process.hrtime(startTime);
+          var middlewareName = oldMIddleware.name;
+          req.profilingStats = req.profilingStats || [];
 
-        req.profilingStats.push({
-          name: middlewareName,
-          timeStarted: startDate,
-          duration: duration[1] / 1000000000
+          req.profilingStats.push({
+            name: middlewareName,
+            timeStarted: startDate,
+            duration: duration[1] / 1000000000
+          });
+          return next(err);
         });
-        return next(err);
-      });
-    };
+      };
+    } else {
+      args[i] = function(req, res, next) {
+        var startTime = process.hrtime();
+        var startDate = new Date();
+        return oldMIddleware(req, res, function(err) {
+          var duration = process.hrtime(startTime);
+          var middlewareName = oldMIddleware.name;
+          req.profilingStats = req.profilingStats || [];
+
+          req.profilingStats.push({
+            name: middlewareName,
+            timeStarted: startDate,
+            duration: duration[1] / 1000000000
+          });
+          return next(err);
+        });
+      };
+    }   
   }
 
   /**
@@ -74,4 +93,3 @@
   }
 
 })();
-
