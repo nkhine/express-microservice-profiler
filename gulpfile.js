@@ -2,4 +2,4 @@
 
 var initBuildService = require('express-microservice-build');
 
-initBuildService()
+initBuildService();
