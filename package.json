@@ -17,7 +17,7 @@
   "name": "express-microservice-profiler",
   "dependencies": {
     "express": "^4.13.4",
-    "express-microservice-build": "git+https://agiliumlabs.com/bitbucket/scm/cmp/express-microservice-build.git",
+    "express-microservice-build": "nkhine/express-microservice-build",
     "jshint": "^2.9.2",
     "supertest": "^1.2.0"
   },
